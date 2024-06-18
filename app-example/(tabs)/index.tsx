@@ -1,10 +1,5 @@
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { View } from "react-native";
 
 export default function HomeScreen() {
-  return (
-    <ThemedView>
-      <ThemedText>Home</ThemedText>
-    </ThemedView>
-  );
+  return <View></View>;
 }
