@@ -33,7 +33,7 @@ const features = [
   },
 ];
 
-const Home = () => {
+export default function Home() {
   return (
     <ScrollView bg="white">
       <Box p={4}>
@@ -116,6 +116,4 @@ const Home = () => {
       </Box>
     </ScrollView>
   );
-};
-
-export default Home;
+}
