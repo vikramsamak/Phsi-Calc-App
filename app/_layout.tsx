@@ -1,13 +1,11 @@
-import { Stack } from "expo-router";
-import React from "react";
+import DrawerNavigator from "@/components/DrawerNavigator";
 import { NativeBaseProvider } from "native-base";
+import React from "react";
 
 export default function RootLayout() {
   return (
     <NativeBaseProvider isSSR={false}>
-      <Stack>
-        <Stack.Screen name="index" options={{ title: "Home" }} />
-      </Stack>
+      <DrawerNavigator />
     </NativeBaseProvider>
   );
 }
