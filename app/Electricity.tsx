@@ -1,10 +1,6 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { ScrollView } from "native-base";
 
 export default function Electricity() {
-  return (
-    <View>
-      <Text>Electricity</Text>
-    </View>
-  );
+  return <ScrollView></ScrollView>;
 }

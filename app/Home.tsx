@@ -1,10 +1,121 @@
 import React from "react";
-import { Box, Text } from "native-base";
+import {
+  ScrollView,
+  Box,
+  Heading,
+  Text,
+  Icon,
+  Pressable,
+  VStack,
+} from "native-base";
+import { Ionicons } from "@expo/vector-icons";
+import { drawerItems } from "../constants/drawerConfig";
+import { router } from "expo-router";
 
-export default function Home() {
+const features = [
+  {
+    title: "Physics Calculations",
+    description:
+      "Easily perform various physics calculations including electricity, mechanics, quantum mechanics, thermodynamics, and more.",
+    icon: "calculator-outline",
+  },
+  {
+    title: "Comprehensive Topics",
+    description:
+      "Explore detailed topics such as electromagnetism, electrostatics, fluid state physics, solid state physics, and subatomic physics.",
+    icon: "book-outline",
+  },
+  {
+    title: "User-Friendly Interface",
+    description:
+      "Intuitive and easy-to-use interface designed to streamline your physics calculations and learning experience.",
+    icon: "rocket-outline",
+  },
+];
+
+const Home = () => {
   return (
-    <Box flex={1} justifyContent="center" alignItems="center">
-      <Text>Home Screen</Text>
-    </Box>
+    <ScrollView bg="white">
+      <Box p={4}>
+        <Heading size="xl" color="primary.500" mb={4}>
+          Welcome to Physi-Calc App
+        </Heading>
+        <Text fontSize="md" color="gray.500" mb={4}>
+          Perform physics calculations with ease.
+        </Text>
+
+        <VStack space={4} width="100%" mt={4}>
+          <Heading size="md" color="primary.500" mb={2}>
+            Features
+          </Heading>
+          {features.map((feature, index) => (
+            <Box
+              key={index}
+              bg="gray.100"
+              p={4}
+              borderRadius="md"
+              flexDirection="row"
+              alignItems="center"
+            >
+              <Icon
+                as={Ionicons}
+                name={feature.icon}
+                size="lg"
+                color="primary.500"
+                mr={4}
+              />
+              <VStack flex={1}>
+                <Text
+                  fontSize="lg"
+                  fontWeight="bold"
+                  color="primary.500"
+                  mb={2}
+                >
+                  {feature.title}
+                </Text>
+                <Text fontSize="md" color="gray.700">
+                  {feature.description}
+                </Text>
+              </VStack>
+            </Box>
+          ))}
+        </VStack>
+
+        <VStack space={4} width="100%" mt={4}>
+          <Heading size="md" color="primary.500" mb={2}>
+            Topics
+          </Heading>
+          {drawerItems.map(
+            (item, index) =>
+              item.name !== "Home" &&
+              item.name !== "Settings" && (
+                <Pressable
+                  key={index}
+                  onPress={() => router.push(item.name)}
+                  bg="gray.100"
+                  p={4}
+                  borderRadius="md"
+                  width="100%"
+                  alignItems="center"
+                  flexDirection="row"
+                >
+                  <Icon
+                    as={Ionicons}
+                    name={item.icon}
+                    size="lg"
+                    color="primary.500"
+                    mr={4}
+                  />
+                  <Text fontSize="lg" fontWeight="bold" color="primary.500">
+                    {item.name}
+                  </Text>
+                </Pressable>
+              )
+          )}
+        </VStack>
+      </Box>
+    </ScrollView>
   );
-}
+};
+
+export default Home;

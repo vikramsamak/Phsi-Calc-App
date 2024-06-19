@@ -14,7 +14,6 @@ import Waves from "@/app/Waves";
 
 export const drawerItems = [
   { name: "Home", component: Home, icon: "home-outline" },
-  { name: "Settings", component: Settings, icon: "settings-outline" },
   { name: "Electricity", component: Electricity, icon: "flash-outline" },
   {
     name: "Electromagnetism",
@@ -43,11 +42,12 @@ export const drawerItems = [
     component: SolidStatePhysics,
     icon: "cube-outline",
   },
-  { name: "Subatomic", component: Subatomic, icon: "electron-outline" }, // Assuming custom electron icon
+  { name: "Subatomic", component: Subatomic, icon: "nuclear-outline" }, 
   {
     name: "Thermodynamics",
     component: Thermodynamics,
     icon: "thermometer-outline",
   },
-  { name: "Waves", component: Waves, icon: "wave-outline" }, // Assuming custom wave icon
+  { name: "Waves", component: Waves, icon: "water-outline" },
+  { name: "Settings", component: Settings, icon: "settings-outline" }, 
 ];
