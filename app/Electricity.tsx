@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Heading, ScrollView, Text, VStack } from "native-base";
 import GenericFormCard from "@/components/GenericFormCard";
 import GenericForm from "@/components/GenericForm";
+import { electricityCards } from "@/constants/ElectricityCards";
 
 export default function Electricity() {
   return (
@@ -23,19 +24,22 @@ export default function Electricity() {
         <Heading size="xl" color="primary.500" mb={4}>
           Electricity Calculators
         </Heading>
-      
-          <GenericFormCard
-            cardTitle="Test"
-            formComponent={
-              <GenericForm
-                fields={[{ label: "test", placeholder: "test" }]}
-                onSubmit={() => {
-                  console.log("Submittted");
-                }}
-              />
-            }
-          />
-  
+        <VStack space={4}>
+          {electricityCards.map((card, index) => (
+            <GenericFormCard
+              key={index}
+              cardTitle={card.cardTitle}
+              formComponent={
+                <GenericForm
+                  fields={card.formfields}
+                  onSubmit={(data) => {
+                    card.apiFunction(data);
+                  }}
+                />
+              }
+            />
+          ))}
+        </VStack>
       </Box>
     </ScrollView>
   );
