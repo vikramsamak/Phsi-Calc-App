@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator = () => {
+function DrawerNavigator() {
   return (
     <Box safeArea flex={1}>
       <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
@@ -20,6 +20,6 @@ const DrawerNavigator = () => {
       </Drawer.Navigator>
     </Box>
   );
-};
+}
 
 export default DrawerNavigator;
