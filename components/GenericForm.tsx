@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VStack, FormControl, Input, Button } from "native-base";
+import { VStack, FormControl, Input, Button, Text } from "native-base";
 
 interface FormField {
   label: string;
@@ -33,6 +33,7 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
       setResult("An error occurred while calculating.");
     } finally {
       setLoading(false);
+      setFormValues({});
     }
   };
 
@@ -51,10 +52,12 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
           />
         </FormControl>
       ))}
-      <FormControl>
-        <FormControl.Label>Result</FormControl.Label>
-        <Input value={result ? result : ""} />
-      </FormControl>
+      {result !== null && (
+        <FormControl>
+          <FormControl.Label>Result</FormControl.Label>
+          <Text>{result}</Text>
+        </FormControl>
+      )}
       <Button onPress={handleSubmit} isLoading={loading}>
         Calculate
       </Button>
