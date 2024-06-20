@@ -1,3 +1,5 @@
+import { getapiResult } from "@/helpers/getapiResult";
+
 export interface FormField {
   label: string;
   placeholder: string;
@@ -6,15 +8,26 @@ export interface FormField {
 export interface ElectricityCard {
   cardTitle: string;
   formfields: FormField[];
-  apiFunction: (data: any) => void;
+  apiFunction: (data: any) => Promise<any>;
 }
+
+const force_electrostatics = {
+  cardTitle: "Force Electrostatics",
+  formfields: [
+    { label: "Q1", placeholder: "Enter Magnitude q1" },
+    { label: "Q2", placeholder: "Enter Magnitude q2" },
+    { label: "Resistance", placeholder: "Enter Resistance" },
+  ],
+  apiFunction: async (data: object) => {
+    const res = await getapiResult("electricity", "force_electrostatics", data);
+    return res;
+  },
+};
 
 export const electricityCards: ElectricityCard[] = [
   {
-    cardTitle: "Resistance",
-    formfields: [{ label: "Voltage", placeholder: "Enter voltage (V)" }],
-    apiFunction: (data: any) => {
-      console.log(data);
-    },
+    cardTitle: force_electrostatics.cardTitle,
+    formfields: force_electrostatics.formfields,
+    apiFunction: force_electrostatics.apiFunction,
   },
 ];

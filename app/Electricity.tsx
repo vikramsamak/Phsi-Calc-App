@@ -32,9 +32,7 @@ export default function Electricity() {
               formComponent={
                 <GenericForm
                   fields={card.formfields}
-                  onSubmit={(data) => {
-                    card.apiFunction(data);
-                  }}
+                  getResult={card.apiFunction}
                 />
               }
             />
