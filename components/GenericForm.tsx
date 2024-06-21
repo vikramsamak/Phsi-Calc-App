@@ -52,12 +52,14 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
           />
         </FormControl>
       ))}
-      {result !== null && (
-        <FormControl>
-          <FormControl.Label>Result</FormControl.Label>
-          <Text>{result}</Text>
-        </FormControl>
-      )}
+      <FormControl>
+        <FormControl.Label>Result</FormControl.Label>
+        <Input
+          value={result ? result : ""}
+          isReadOnly
+          borderColor={result && "primary.600"}
+        ></Input>
+      </FormControl>
       <Button onPress={handleSubmit} isLoading={loading}>
         Calculate
       </Button>
