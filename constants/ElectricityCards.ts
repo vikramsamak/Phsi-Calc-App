@@ -18,10 +18,8 @@ const force_electrostatics = {
     { label: "Q2", placeholder: "Enter Magnitude q2" },
     { label: "Resistance", placeholder: "Enter Resistance" },
   ],
-  apiFunction: async (data: object) => {
-    const res = await getapiResult("electricity", "force_electrostatics", data);
-    return res;
-  },
+  apiFunction: async (data: object) =>
+    await getapiResult("/electricity/force_electrostatics", data),
 };
 
 export const electricityCards: ElectricityCard[] = [

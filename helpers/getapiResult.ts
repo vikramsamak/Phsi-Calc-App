@@ -1,12 +1,8 @@
 import { apiBaseUrl } from "@/constants/Constants";
 
-export async function getapiResult(
-  route: string,
-  subRoute: string,
-  body: object
-) {
+export async function getapiResult(route: string, body: object) {
   try {
-    const res = await fetch(`${apiBaseUrl}/${route}/${subRoute}`, {
+    const res = await fetch(`${apiBaseUrl}${route}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
