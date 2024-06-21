@@ -49,5 +49,5 @@ export const drawerItems = [
     icon: "thermometer-outline",
   },
   { name: "Waves", component: Waves, icon: "water-outline" },
-  { name: "Rate Us", component: RateUs, icon: "star-outline" },
+  { name: "RateUs", component: RateUs, icon: "star-outline" },
 ];
