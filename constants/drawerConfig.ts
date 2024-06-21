@@ -1,6 +1,5 @@
 import Electricity from "@/app/Electricity";
 import Home from "@/app/Home";
-import Settings from "@/app/Settings";
 import Electromagnetism from "@/app/Electromagnetism";
 import Electrostatics from "@/app/Electrostatics";
 import Errors from "@/app/Errors";
@@ -11,6 +10,7 @@ import SolidStatePhysics from "@/app/SolidStatePhysics";
 import Subatomic from "@/app/Subatomic";
 import Thermodynamics from "@/app/Thermodynamics";
 import Waves from "@/app/Waves";
+import RateUs from "@/app/RateUs";
 
 export const drawerItems = [
   { name: "Home", component: Home, icon: "home-outline" },
@@ -42,12 +42,12 @@ export const drawerItems = [
     component: SolidStatePhysics,
     icon: "cube-outline",
   },
-  { name: "Subatomic", component: Subatomic, icon: "nuclear-outline" }, 
+  { name: "Subatomic", component: Subatomic, icon: "nuclear-outline" },
   {
     name: "Thermodynamics",
     component: Thermodynamics,
     icon: "thermometer-outline",
   },
   { name: "Waves", component: Waves, icon: "water-outline" },
-  { name: "Settings", component: Settings, icon: "settings-outline" }, 
+  { name: "RateUs", component: RateUs, icon: "star-outline" },
 ];
