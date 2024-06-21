@@ -1,31 +1,84 @@
-import { getapiResult } from "@/helpers/getapiResult";
+import { getapiResponse } from "@/helpers/getapiResult";
+import { GenericCard } from "./InterFaces";
 
-export interface FormField {
-  label: string;
-  placeholder: string;
-}
-
-export interface ElectricityCard {
-  cardTitle: string;
-  formfields: FormField[];
-  apiFunction: (data: any) => Promise<any>;
-}
-
-const force_electrostatics = {
+const force_electrostatics: GenericCard = {
   cardTitle: "Force Electrostatics",
   formfields: [
-    { label: "Q1", placeholder: "Enter Magnitude q1" },
-    { label: "Q2", placeholder: "Enter Magnitude q2" },
+    { label: "Q1", placeholder: "Enter Magnitude (q1)" },
+    { label: "Q2", placeholder: "Enter Magnitude (q2)" },
     { label: "Resistance", placeholder: "Enter Resistance" },
   ],
   apiFunction: async (data: object) =>
-    await getapiResult("/electricity/force_electrostatics", data),
+    await getapiResponse("/electricity/force_electrostatics", data),
 };
 
-export const electricityCards: ElectricityCard[] = [
+const resistance: GenericCard = {
+  cardTitle: "Resistance",
+  formfields: [
+    {
+      label: "Voltage",
+      placeholder: "Enter Voltage (V)",
+    },
+    { label: "Current", placeholder: "Enter Current (C)" },
+  ],
+  apiFunction: async (data: object) =>
+    await getapiResponse("/electricity/resistance", data),
+};
+
+const current: GenericCard = {
+  cardTitle: "Current",
+  formfields: [
+    { label: "Voltage", placeholder: "Enter Voltage (V)" },
+    { label: "Resistance", placeholder: "Enter Resistance" },
+  ],
+  apiFunction: async (data: object) =>
+    await getapiResponse("/electricity/current", data),
+};
+
+const voltage: GenericCard = {
+  cardTitle: "Voltage",
+  formfields: [
+    { label: "Current", placeholder: "Enter Current" },
+    { label: "Resistance", placeholder: "Enter Resistance" },
+  ],
+  apiFunction: async (data: object) =>
+    await getapiResponse("/electricity/voltage", data),
+};
+
+const power: GenericCard = {
+  cardTitle: "Power",
+  formfields: [
+    { label: "Voltage", placeholder: "Enter Voltage" },
+    { label: "Current", placeholder: "Enter Current" },
+  ],
+  apiFunction: async (data: object) =>
+    await getapiResponse("/electricity/power", data),
+};
+
+export const electricityCards: GenericCard[] = [
   {
     cardTitle: force_electrostatics.cardTitle,
     formfields: force_electrostatics.formfields,
     apiFunction: force_electrostatics.apiFunction,
+  },
+  {
+    cardTitle: resistance.cardTitle,
+    formfields: resistance.formfields,
+    apiFunction: resistance.apiFunction,
+  },
+  {
+    cardTitle: current.cardTitle,
+    formfields: current.formfields,
+    apiFunction: current.apiFunction,
+  },
+  {
+    cardTitle: voltage.cardTitle,
+    formfields: voltage.formfields,
+    apiFunction: voltage.apiFunction,
+  },
+  {
+    cardTitle: power.cardTitle,
+    formfields: power.formfields,
+    apiFunction: power.apiFunction,
   },
 ];

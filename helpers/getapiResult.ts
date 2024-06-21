@@ -1,6 +1,6 @@
 import { apiBaseUrl } from "@/constants/Constants";
 
-export async function getapiResult(route: string, body: object) {
+export async function getapiResponse(route: string, body: object) {
   try {
     const res = await fetch(`${apiBaseUrl}${route}`, {
       method: "POST",
