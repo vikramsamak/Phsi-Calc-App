@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { VStack, FormControl, Input, Button, Text } from "native-base";
+import { VStack, FormControl, Input, Button, Center, Modal } from "native-base";
+import GenericModal from "./GenericModal";
 
 interface FormField {
   label: string;
@@ -14,7 +15,12 @@ interface GenericFormProps {
 const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
   const [formValues, setFormValues] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState<boolean>(false);
-  const [result, setResult] = useState<string | null>(null);
+  const [result, setResult] = useState<{
+    Definition: string;
+    Given: Record<string, any>;
+    Result: number;
+  } | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleChange = (value: any, fieldName: string) => {
     setFormValues((prevValues) => ({
@@ -28,9 +34,9 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
     try {
       const res = await getResult(formValues);
       setResult(res);
+      setShowModal(true);
     } catch (error) {
       console.error(error);
-      setResult("An error occurred while calculating.");
     } finally {
       setLoading(false);
       setFormValues({});
@@ -38,32 +44,31 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
   };
 
   return (
-    <VStack space={4} width="100%">
-      {fields.map((field, index) => (
-        <FormControl key={index}>
-          <FormControl.Label>{field.label}</FormControl.Label>
-          <Input
-            placeholder={field.placeholder}
-            value={formValues[field.label.toLowerCase()] || ""}
-            onChangeText={(value) =>
-              handleChange(value, field.label.toLowerCase())
-            }
-            keyboardType={"number-pad"}
-          />
-        </FormControl>
-      ))}
-      <FormControl>
-        <FormControl.Label>Result</FormControl.Label>
-        <Input
-          value={result ? result : ""}
-          isReadOnly
-          borderColor={result && "primary.600"}
-        ></Input>
-      </FormControl>
-      <Button onPress={handleSubmit} isLoading={loading}>
-        Calculate
-      </Button>
-    </VStack>
+    <Center>
+      <VStack space={4} width="100%">
+        {fields.map((field, index) => (
+          <FormControl key={index}>
+            <FormControl.Label>{field.label}</FormControl.Label>
+            <Input
+              placeholder={field.placeholder}
+              value={formValues[field.label.toLowerCase()] || ""}
+              onChangeText={(value) =>
+                handleChange(value, field.label.toLowerCase())
+              }
+              keyboardType={"number-pad"}
+            />
+          </FormControl>
+        ))}
+        <Button onPress={handleSubmit} isLoading={loading}>
+          Calculate
+        </Button>
+      </VStack>
+      <GenericModal
+        result={result}
+        setShowModal={setShowModal}
+        showModal={showModal}
+      ></GenericModal>
+    </Center>
   );
 };
 

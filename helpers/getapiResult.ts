@@ -11,7 +11,7 @@ export async function getapiResponse(route: string, body: object) {
     });
     if (res.status === 200) {
       const jsonRes = await res.json();
-      return jsonRes.Result;
+      return jsonRes;
     }
   } catch (error) {
     console.error(error);
