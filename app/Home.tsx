@@ -9,7 +9,7 @@ import {
   VStack,
 } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import { drawerItems } from "@/constants/drawerConfig";
+import { drawerItems } from "@/constants/DrawerConfig";
 import { router } from "expo-router";
 
 const features = [
