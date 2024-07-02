@@ -2,7 +2,7 @@ import React from "react";
 import { Text, VStack, Divider, Pressable, HStack, Icon } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { drawerItems } from "../constants/DrawerConfig";
+import { drawerItems } from "@/constants/drawerConfig";
 
 export default function DrawerContent(props: any) {
   return (

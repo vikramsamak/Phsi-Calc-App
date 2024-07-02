@@ -11,6 +11,7 @@ import Subatomic from "@/app/Subatomic";
 import Thermodynamics from "@/app/Thermodynamics";
 import Waves from "@/app/Waves";
 import RateUs from "@/app/RateUs";
+import Nlm from "@/app/Nlm";
 
 export const drawerItems = [
   { name: "Home", component: Home, icon: "home-outline" },
@@ -50,4 +51,5 @@ export const drawerItems = [
   },
   { name: "Waves", component: Waves, icon: "water-outline" },
   { name: "RateUs", component: RateUs, icon: "star-outline" },
+  { name: "Nlm", component: Nlm, icon: "star-outline" },
 ];

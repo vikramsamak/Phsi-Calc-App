@@ -1,7 +1,7 @@
 import { Box } from "native-base";
 import React from "react";
 import DrawerContent from "./DrawerContent";
-import { drawerItems } from "../constants/DrawerConfig";
+import { drawerItems } from "@/constants/drawerConfig";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
