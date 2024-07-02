@@ -50,6 +50,6 @@ export const drawerItems = [
     icon: "thermometer-outline",
   },
   { name: "Waves", component: Waves, icon: "water-outline" },
+  { name: "Nlm", component: Nlm, icon: "md-rocket" },
   { name: "RateUs", component: RateUs, icon: "star-outline" },
-  { name: "Nlm", component: Nlm, icon: "star-outline" },
 ];
