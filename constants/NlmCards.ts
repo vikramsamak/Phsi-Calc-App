@@ -22,9 +22,9 @@ const momentum: GenericCard = {
 const recoil_velocity: GenericCard = {
   cardTitle: "Recoil Velocity",
   formfields: [
-    { label: "Massofbullet", placeholder: "Enter Massofbullet" },
-    { label: "Initialvelocity", placeholder: "Enter Initialvelocity" },
-    { label: "Massofgun", placeholder: "" },
+    { label: "Mass of Bullet", placeholder: "Enter Mass of bullet" },
+    { label: "Initial Velocity", placeholder: "Enter Initial Velocity" },
+    { label: "Mass of Gun", placeholder: "Enter Mass of Gun" },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/recoil_velocity", data),
 };

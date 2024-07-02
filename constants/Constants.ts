@@ -12,8 +12,8 @@ export const electricity: GenericPageProps = {
 };
 
 export const nlm: GenericPageProps = {
-  heading: "",
-  desc: "",
+  heading: "Newton's Laws of Motion",
+  desc: "Newton's Laws of Motion are three fundamental principles that describe the relationship between the motion of an object and the forces acting on it. These laws were formulated by Sir Isaac Newton in his work 'Philosophiæ Naturalis Principia Mathematica,' published in 1687.",
   cardHeading: "NLM Calculators",
   cards: nlmCards,
 };
