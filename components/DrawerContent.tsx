@@ -39,7 +39,7 @@ export default function DrawerContent(props: any) {
                     index === props.state.index ? "primary.500" : "gray.700"
                   }
                 >
-                  {item.name}
+                  {item.title}
                 </Text>
               </HStack>
             </Pressable>

@@ -14,42 +14,63 @@ import RateUs from "@/app/RateUs";
 import Nlm from "@/app/Nlm";
 
 export const drawerItems = [
-  { name: "Home", component: Home, icon: "home" },
-  { name: "Electricity", component: Electricity, icon: "flash" },
+  { name: "Home", component: Home, icon: "home", title: "Home" },
+  {
+    name: "Electricity",
+    component: Electricity,
+    icon: "flash",
+    title: "Electricity",
+  },
   {
     name: "Electromagnetism",
     component: Electromagnetism,
     icon: "magnet",
+    title: "Electromagnetism",
   },
   {
     name: "Electrostatics",
     component: Electrostatics,
     icon: "flash-off",
+    title: "Electrostatics",
   },
-  { name: "Errors", component: Errors, icon: "alert" },
+  { name: "Errors", component: Errors, icon: "alert", title: "Errors" },
   {
     name: "FluidStatePhysics",
     component: FluidStatePhysics,
     icon: "waves",
+    title: "Fluid State Physics",
   },
-  { name: "Mechanics", component: Mechanics, icon: "wrench" },
+  {
+    name: "Mechanics",
+    component: Mechanics,
+    icon: "wrench",
+    title: "Mechanics",
+  },
   {
     name: "QuantumMechanics",
     component: QuantumMechanics,
     icon: "atom-variant",
+    title: "Quantum Mechanics",
   },
   {
     name: "SolidStatePhysics",
     component: SolidStatePhysics,
     icon: "cube",
+    title: "Solid State Physics",
   },
-  { name: "Subatomic", component: Subatomic, icon: "molecule" },
+  {
+    name: "Subatomic",
+    component: Subatomic,
+    icon: "molecule",
+    title: "Subatomic",
+  },
   {
     name: "Thermodynamics",
     component: Thermodynamics,
     icon: "thermometer",
+    title: "Thermodynamics",
   },
-  { name: "Waves", component: Waves, icon: "wave" },
-  { name: "Nlm", component: Nlm, icon: "chart-line" },
-  { name: "RateUs", component: RateUs, icon: "star" },
+  { name: "Waves", component: Waves, icon: "wave", title: "Waves" },
+  { name: "Nlm", component: Nlm, icon: "chart-line", title: "NLM" },
+  { name: "RateUs", component: RateUs, icon: "star", title: "Rate Us" },
 ];
