@@ -11,43 +11,66 @@ import Subatomic from "@/app/Subatomic";
 import Thermodynamics from "@/app/Thermodynamics";
 import Waves from "@/app/Waves";
 import RateUs from "@/app/RateUs";
+import Nlm from "@/app/Nlm";
 
 export const drawerItems = [
-  { name: "Home", component: Home, icon: "home-outline" },
-  { name: "Electricity", component: Electricity, icon: "flash-outline" },
+  { name: "Home", component: Home, icon: "home", title: "Home" },
+  {
+    name: "Electricity",
+    component: Electricity,
+    icon: "flash",
+    title: "Electricity",
+  },
   {
     name: "Electromagnetism",
     component: Electromagnetism,
-    icon: "magnet-outline",
+    icon: "magnet",
+    title: "Electromagnetism",
   },
   {
     name: "Electrostatics",
     component: Electrostatics,
-    icon: "flash-off-outline",
+    icon: "flash-off",
+    title: "Electrostatics",
   },
-  { name: "Errors", component: Errors, icon: "warning-outline" },
+  { name: "Errors", component: Errors, icon: "alert", title: "Errors" },
   {
     name: "FluidStatePhysics",
     component: FluidStatePhysics,
-    icon: "water-outline",
+    icon: "waves",
+    title: "Fluid State Physics",
   },
-  { name: "Mechanics", component: Mechanics, icon: "construct-outline" },
+  {
+    name: "Mechanics",
+    component: Mechanics,
+    icon: "wrench",
+    title: "Mechanics",
+  },
   {
     name: "QuantumMechanics",
     component: QuantumMechanics,
-    icon: "nuclear-outline",
+    icon: "atom-variant",
+    title: "Quantum Mechanics",
   },
   {
     name: "SolidStatePhysics",
     component: SolidStatePhysics,
-    icon: "cube-outline",
+    icon: "cube",
+    title: "Solid State Physics",
   },
-  { name: "Subatomic", component: Subatomic, icon: "nuclear-outline" },
+  {
+    name: "Subatomic",
+    component: Subatomic,
+    icon: "molecule",
+    title: "Subatomic",
+  },
   {
     name: "Thermodynamics",
     component: Thermodynamics,
-    icon: "thermometer-outline",
+    icon: "thermometer",
+    title: "Thermodynamics",
   },
-  { name: "Waves", component: Waves, icon: "water-outline" },
-  { name: "RateUs", component: RateUs, icon: "star-outline" },
+  { name: "Waves", component: Waves, icon: "wave", title: "Waves" },
+  { name: "Nlm", component: Nlm, icon: "chart-line", title: "NLM" },
+  { name: "RateUs", component: RateUs, icon: "star", title: "Rate Us" },
 ];

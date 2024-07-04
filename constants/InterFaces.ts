@@ -8,3 +8,10 @@ export interface GenericCard {
   formfields: FormField[];
   apiFunction: (data: object) => Promise<any>;
 }
+
+export interface GenericPageProps {
+  heading: string;
+  desc: string;
+  cardHeading: string;
+  cards: GenericCard[];
+}

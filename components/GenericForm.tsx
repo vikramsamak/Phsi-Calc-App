@@ -51,9 +51,14 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
             <FormControl.Label>{field.label}</FormControl.Label>
             <Input
               placeholder={field.placeholder}
-              value={formValues[field.label.toLowerCase()] || ""}
+              value={
+                formValues[field.label.replace(/\s+/g, "").toLowerCase()] || ""
+              }
               onChangeText={(value) =>
-                handleChange(value, field.label.toLowerCase())
+                handleChange(
+                  value,
+                  field.label.replace(/\s+/g, "").toLowerCase()
+                )
               }
               keyboardType={"number-pad"}
             />

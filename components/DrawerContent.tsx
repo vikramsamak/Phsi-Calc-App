@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, VStack, Divider, Pressable, HStack, Icon } from "native-base";
-import { Ionicons } from "@expo/vector-icons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { drawerItems } from "../constants/DrawerConfig";
+import { drawerItems } from "@/constants/DrawerConfig";
 
 export default function DrawerContent(props: any) {
   return (
@@ -26,7 +26,7 @@ export default function DrawerContent(props: any) {
             >
               <HStack space="7" alignItems="center">
                 <Icon
-                  as={Ionicons}
+                  as={MaterialCommunityIcons}
                   name={item.icon}
                   size="5"
                   color={
@@ -39,7 +39,7 @@ export default function DrawerContent(props: any) {
                     index === props.state.index ? "primary.500" : "gray.700"
                   }
                 >
-                  {item.name}
+                  {item.title}
                 </Text>
               </HStack>
             </Pressable>

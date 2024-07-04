@@ -1,4 +1,4 @@
-import { getapiResponse } from "@/helpers/getapiResult";
+import { getapiResponse } from "@/helpers/GetapiResult";
 import { GenericCard } from "./InterFaces";
 
 const force_electrostatics: GenericCard = {
