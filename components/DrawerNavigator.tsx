@@ -27,6 +27,9 @@ function DrawerNavigator() {
             name={item.name}
             component={item.component}
             key={item.name}
+            options={({ route }) => ({
+              headerTitle: item.title,
+            })}
           />
         ))}
       </Drawer.Navigator>
