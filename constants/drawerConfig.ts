@@ -13,6 +13,7 @@ import Waves from "@/app/Waves";
 import RateUs from "@/app/RateUs";
 import Nlm from "@/app/Nlm";
 
+//DRAWER ITEMS
 export const drawerItems = [
   { name: "Home", component: Home, icon: "home", title: "Home" },
   {
