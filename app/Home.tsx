@@ -9,29 +9,10 @@ import {
   VStack,
 } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { drawerItems } from "@/constants/DrawerConfig";
 import { router } from "expo-router";
-
-const features = [
-  {
-    title: "Physics Calculations",
-    description:
-      "Easily perform various physics calculations including electricity, mechanics, quantum mechanics, thermodynamics, and more.",
-    icon: "calculator-outline",
-  },
-  {
-    title: "Comprehensive Topics",
-    description:
-      "Explore detailed topics such as electromagnetism, electrostatics, fluid state physics, solid state physics, and subatomic physics.",
-    icon: "book-outline",
-  },
-  {
-    title: "User-Friendly Interface",
-    description:
-      "Intuitive and easy-to-use interface designed to streamline your physics calculations and learning experience.",
-    icon: "rocket-outline",
-  },
-];
+import { features } from "@/constants/Constants";
 
 export default function Home() {
   return (
@@ -100,14 +81,14 @@ export default function Home() {
                   flexDirection="row"
                 >
                   <Icon
-                    as={Ionicons}
+                    as={MaterialCommunityIcons}
                     name={item.icon}
                     size="lg"
                     color="primary.500"
                     mr={4}
                   />
                   <Text fontSize="lg" fontWeight="bold" color="primary.500">
-                    {item.name}
+                    {item.title}
                   </Text>
                 </Pressable>
               )

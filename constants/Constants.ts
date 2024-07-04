@@ -4,6 +4,27 @@ import { nlmCards } from "./NlmCards";
 
 export const apiBaseUrl = "https://phsipy-api.vercel.app";
 
+export const features = [
+  {
+    title: "Physics Calculations",
+    description:
+      "Easily perform various physics calculations including electricity, mechanics, quantum mechanics, thermodynamics, and more.",
+    icon: "calculator-outline",
+  },
+  {
+    title: "Comprehensive Topics",
+    description:
+      "Explore detailed topics such as electromagnetism, electrostatics, fluid state physics, solid state physics, and subatomic physics.",
+    icon: "book-outline",
+  },
+  {
+    title: "User-Friendly Interface",
+    description:
+      "Intuitive and easy-to-use interface designed to streamline your physics calculations and learning experience.",
+    icon: "rocket-outline",
+  },
+];
+
 export const electricity: GenericPageProps = {
   heading: "Electricity",
   desc: "Electricity is a form of energy that comes from charged particles.These particles can be positively charged protons, negatively charged electrons, or both. Electricity can flow through conductors like metals and can be harnessed to power various devices and systems in our everyday lives.",
