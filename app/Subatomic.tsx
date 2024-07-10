@@ -1,6 +1,14 @@
 import React from "react";
-import GenericPlaceholder from "@/components/GenericPlaceholder";
+import GenericPage from "@/components/GenericPage";
+import { subatomic } from "@/constants/Constants";
 
 export default function Subatomic() {
-  return <GenericPlaceholder />;
+  return (
+    <GenericPage
+      heading={subatomic.heading}
+      desc={subatomic.desc}
+      cardHeading={subatomic.heading}
+      cards={subatomic.cards}
+    />
+  );
 }
