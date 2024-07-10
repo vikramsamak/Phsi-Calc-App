@@ -1,6 +1,7 @@
 import { electricityCards } from "./ElectricityCards";
 import { GenericPageProps } from "./InterFaces";
 import { nlmCards } from "./NlmCards";
+import { subautomicCards } from "./SubautomicCards";
 
 export const apiBaseUrl = "https://phsipy-api.vercel.app";
 
@@ -37,4 +38,11 @@ export const nlm: GenericPageProps = {
   desc: "Newton's Laws of Motion are three fundamental principles that describe the relationship between the motion of an object and the forces acting on it. These laws were formulated by Sir Isaac Newton in his work 'Philosophiæ Naturalis Principia Mathematica,' published in 1687.",
   cardHeading: "NLM Calculators",
   cards: nlmCards,
+};
+
+export const subatomic: GenericPageProps = {
+  heading: "Subautomic",
+  desc: "Subatomic refers to the realm of physics that deals with particles smaller than atoms. These particles, such as electrons, protons, and neutrons, are the fundamental constituents of matter and energy. Understanding subatomic particles is crucial in exploring quantum mechanics, particle physics, and the fundamental forces that shape the universe. Researchers study subatomic particles through experiments in particle colliders like the Large Hadron Collider (LHC), aiming to discover new particles and understand their properties. Applications of subatomic research include advancements in technology, such as semiconductors and medical imaging devices, and contributions to our understanding of cosmology, including dark matter and dark energy.",
+  cardHeading: "Subautomic Calculators",
+  cards: subautomicCards,
 };

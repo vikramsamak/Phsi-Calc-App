@@ -13,7 +13,7 @@ export default function GenericPage({
   return (
     <ScrollView width="100%" height="100%" bg="white" p={4}>
       <Box m={4}>
-        <Heading size="lg" color="primary.500" mb={4}>
+        <Heading size="xl" color="primary.500" mb={4}>
           {heading}
         </Heading>
         <Text fontSize="md" color="gray.700" textAlign={"justify"}>
@@ -22,7 +22,7 @@ export default function GenericPage({
       </Box>
 
       <Box m={4}>
-        <Heading size="xl" color="primary.500" mb={4}>
+        <Heading size="lg" color="primary.500" mb={4}>
           {cardHeading}
         </Heading>
         <VStack space={4}>
