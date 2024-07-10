@@ -5,7 +5,10 @@ const force: GenericCard = {
   cardTitle: "Force",
   formfields: [
     { label: "Mass", placeholder: "Enter Mass" },
-    { label: "Acceleration", placeholder: "Enter Acceleration" },
+    {
+      label: "Acceleration",
+      placeholder: "Enter Acceleration",
+    },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/force", data),
 };
@@ -22,8 +25,14 @@ const momentum: GenericCard = {
 const recoil_velocity: GenericCard = {
   cardTitle: "Recoil Velocity",
   formfields: [
-    { label: "Mass of Bullet", placeholder: "Enter Mass of bullet" },
-    { label: "Initial Velocity", placeholder: "Enter Initial Velocity" },
+    {
+      label: "Mass of Bullet",
+      placeholder: "Enter Mass of bullet",
+    },
+    {
+      label: "Initial Velocity",
+      placeholder: "Enter Initial Velocity",
+    },
     { label: "Mass of Gun", placeholder: "Enter Mass of Gun" },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/recoil_velocity", data),

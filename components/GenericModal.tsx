@@ -30,7 +30,7 @@ const GenericModal: React.FC<GenericModalProps> = ({
               {Object.entries(result.Given).map(([key, value]) => (
                 <HStack key={key} justifyContent="space-between">
                   <Text>{key}:</Text>
-                  <Text>{value}</Text>
+                  <Text>{Array.isArray(value) ? value.join(",") : value}</Text>
                 </HStack>
               ))}
               <Text fontSize="lg" bold mt={4}>

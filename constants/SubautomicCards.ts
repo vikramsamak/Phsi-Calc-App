@@ -12,7 +12,11 @@ const binding_energy: GenericCard = {
   cardTitle: "Binding Energy",
   formfields: [
     { label: "Mass Parent", placeholder: "Enter Mass Parent" },
-    { label: "Mass Daughters", placeholder: "Enter Mass Daughters" },
+    {
+      label: "Mass Daughters",
+      placeholder: "Enter Mass Daughters (comma-seprated)",
+      type: "array",
+    },
   ],
   apiFunction: (data: object) =>
     getapiResponse("/subautomatic/binding_energy", data),
