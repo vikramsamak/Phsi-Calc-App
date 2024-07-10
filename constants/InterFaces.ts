@@ -1,6 +1,7 @@
 export interface FormField {
   label: string;
   placeholder: string;
+  type?: "array";
 }
 
 export interface GenericCard {

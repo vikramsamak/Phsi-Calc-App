@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { VStack, FormControl, Input, Button, Center, Modal } from "native-base";
 import GenericModal from "./GenericModal";
-
-interface FormField {
-  label: string;
-  placeholder: string;
-}
+import { FormField } from "@/constants/InterFaces";
 
 interface GenericFormProps {
   fields: FormField[];
@@ -22,11 +18,22 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
   } | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleChange = (value: any, fieldName: string) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [fieldName]: value,
-    }));
+  const handleChange = (value: any, fieldName: string, type?: "array") => {
+    switch (type) {
+      case "array":
+        const arrayValue = value.split(",").map((item: string) => item.trim());
+        setFormValues((prevValues) => ({
+          ...prevValues,
+          [fieldName]: arrayValue,
+        }));
+        break;
+      default:
+        setFormValues((prevValues) => ({
+          ...prevValues,
+          [fieldName]: value,
+        }));
+        break;
+    }
   };
 
   const handleSubmit = async () => {
@@ -57,11 +64,11 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
               onChangeText={(value) =>
                 handleChange(
                   value,
-                  field.label.replace(/\s+/g, "_").toLowerCase()
+                  field.label.replace(/\s+/g, "_").toLowerCase(),
+                  field.type
                 )
               }
               keyboardType={"number-pad"}
-              
             />
           </FormControl>
         ))}
