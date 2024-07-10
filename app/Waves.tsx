@@ -1,10 +1,6 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import GenericPlaceholder from "@/components/GenericPlaceholder";
 
 export default function Waves() {
-  return (
-    <View>
-      <Text>Waves</Text>
-    </View>
-  )
+  return <GenericPlaceholder />;
 }
