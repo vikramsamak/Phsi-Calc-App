@@ -2,6 +2,7 @@ export interface FormField {
   label: string;
   placeholder: string;
   type?: "array";
+  isTextarea?: boolean;
   inputType: "default" | "number-pad" | "email-address";
 }
 

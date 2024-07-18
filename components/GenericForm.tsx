@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { VStack, FormControl, Input, Button, Center, Modal } from "native-base";
+import {
+  VStack,
+  FormControl,
+  Input,
+  Button,
+  Center,
+  TextArea,
+} from "native-base";
 import GenericModal from "./GenericModal";
 import { FormField } from "@/constants/InterFaces";
 
@@ -65,20 +72,40 @@ const GenericForm: React.FC<GenericFormProps> = ({
         {fields.map((field, index) => (
           <FormControl key={index}>
             <FormControl.Label>{field.label}</FormControl.Label>
-            <Input
-              placeholder={field.placeholder}
-              value={
-                formValues[field.label.replace(/\s+/g, "_").toLowerCase()] || ""
-              }
-              onChangeText={(value) =>
-                handleChange(
-                  value,
-                  field.label.replace(/\s+/g, "_").toLowerCase(),
-                  field.type
-                )
-              }
-              keyboardType={field.inputType}
-            />
+            {field.isTextarea ? (
+              <TextArea
+                minH={"2"}
+                placeholder={field.placeholder}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  ""
+                }
+                onChangeText={(value) =>
+                  handleChange(
+                    value,
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  )
+                }
+                autoCompleteType={undefined}
+              />
+            ) : (
+              <Input
+                placeholder={field.placeholder}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  ""
+                }
+                onChangeText={(value) =>
+                  handleChange(
+                    value,
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  )
+                }
+                keyboardType={field.inputType}
+              />
+            )}
           </FormControl>
         ))}
         <Button onPress={handleSubmit} isLoading={loading}>

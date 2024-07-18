@@ -24,19 +24,23 @@ const GenericModal: React.FC<GenericModalProps> = ({
         <Modal.Body>
           {result ? (
             <VStack space={4}>
-              <Text fontSize="lg" bold>
-                Given:
-              </Text>
-              {Object.entries(result.Given).map(([key, value]) => (
-                <HStack key={key} justifyContent="space-between">
-                  <Text>{key}:</Text>
-                  <Text>{Array.isArray(value) ? value.join(",") : value}</Text>
-                </HStack>
-              ))}
-              <Text fontSize="lg" bold mt={4}>
-                Result:
-              </Text>
-              <Text>{result.Result}</Text>
+              {result.Given ? (
+                <>
+                  <Text fontSize="lg" bold>
+                    Given:
+                  </Text>
+                  {Object.entries(result.Given).map(([key, value]) => (
+                    <HStack key={key} justifyContent="space-between">
+                      <Text>{key}:</Text>
+                      <Text>
+                        {Array.isArray(value) ? value.join(",") : value}
+                      </Text>
+                    </HStack>
+                  ))}
+                </>
+              ) : (
+                <Text>{JSON.stringify(result.Result)}</Text>
+              )}
             </VStack>
           ) : (
             <Text>No result available</Text>

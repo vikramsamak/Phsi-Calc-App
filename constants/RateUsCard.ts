@@ -23,11 +23,11 @@ export const RateUsCard: GenericCard[] = [
         label: "Comments",
         placeholder: "Share your feedback",
         inputType: "default",
+        isTextarea: true,
       },
     ],
-    apiFunction: (data) => {
-      console.log(data);
-      return Promise.resolve("ok");
+    apiFunction: async (data: { [key: string]: any }) => {
+      return Promise.resolve({ Result: data });
     },
     submitBtnText: "Submit",
   },
