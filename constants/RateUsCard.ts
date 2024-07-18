@@ -2,7 +2,7 @@ import { GenericCard } from "./InterFaces";
 
 export const RateUsCard: GenericCard[] = [
   {
-    cardTitle: "Rate us",
+    cardTitle: "Your Feedback Matters",
     formfields: [
       {
         label: "Your Name",
@@ -29,5 +29,6 @@ export const RateUsCard: GenericCard[] = [
       console.log(data);
       return Promise.resolve("ok");
     },
+    submitBtnText: "Submit",
   },
 ];

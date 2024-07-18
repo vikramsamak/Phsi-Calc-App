@@ -8,6 +8,7 @@ export interface FormField {
 export interface GenericCard {
   cardTitle: string;
   formfields: FormField[];
+  submitBtnText?: string;
   apiFunction: (data: object) => Promise<any>;
 }
 

@@ -49,8 +49,8 @@ export const subatomic: GenericPageProps = {
 };
 
 export const rateus: GenericPageProps = {
-  heading: "",
-  desc: "",
-  cardHeading: "",
+  heading: "We Value Your Feedback",
+  desc: "Please take a moment to rate your experience and share your feedback with us. Your input helps us improve our services.",
+  cardHeading: "Rate Us",
   cards: RateUsCard,
 };

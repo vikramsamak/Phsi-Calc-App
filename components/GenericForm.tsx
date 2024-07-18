@@ -5,10 +5,15 @@ import { FormField } from "@/constants/InterFaces";
 
 interface GenericFormProps {
   fields: FormField[];
+  submitBtnText: string | undefined;
   getResult: (formValues: Record<string, any>) => Promise<any>;
 }
 
-const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
+const GenericForm: React.FC<GenericFormProps> = ({
+  fields,
+  submitBtnText,
+  getResult,
+}) => {
   const [formValues, setFormValues] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [result, setResult] = useState<{
@@ -77,7 +82,7 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
           </FormControl>
         ))}
         <Button onPress={handleSubmit} isLoading={loading}>
-          Calculate
+          {submitBtnText ? submitBtnText : "Calculate"}
         </Button>
       </VStack>
       <GenericModal

@@ -34,6 +34,7 @@ export default function GenericPage({
                 <GenericForm
                   fields={card.formfields}
                   getResult={card.apiFunction}
+                  submitBtnText={card.submitBtnText}
                 />
               }
             />
