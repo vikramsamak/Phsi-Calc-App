@@ -72,7 +72,7 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
                   field.type
                 )
               }
-              keyboardType={field.inputType ? field.inputType : "default"}
+              keyboardType={field.inputType}
             />
           </FormControl>
         ))}

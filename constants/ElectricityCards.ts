@@ -4,9 +4,21 @@ import { GenericCard } from "./InterFaces";
 const force_electrostatics: GenericCard = {
   cardTitle: "Force Electrostatics",
   formfields: [
-    { label: "Q1", placeholder: "Enter Magnitude (q1)" },
-    { label: "Q2", placeholder: "Enter Magnitude (q2)" },
-    { label: "Resistance", placeholder: "Enter Resistance" },
+    {
+      label: "Q1",
+      placeholder: "Enter Magnitude (q1)",
+      inputType: "number-pad",
+    },
+    {
+      label: "Q2",
+      placeholder: "Enter Magnitude (q2)",
+      inputType: "number-pad",
+    },
+    {
+      label: "Resistance",
+      placeholder: "Enter Resistance",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: async (data: object) =>
     await getapiResponse("/electricity/force_electrostatics", data),
@@ -18,8 +30,13 @@ const resistance: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage (V)",
+      inputType: "number-pad",
     },
-    { label: "Current", placeholder: "Enter Current (C)" },
+    {
+      label: "Current",
+      placeholder: "Enter Current (C)",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: async (data: object) =>
     await getapiResponse("/electricity/resistance", data),
@@ -28,8 +45,16 @@ const resistance: GenericCard = {
 const current: GenericCard = {
   cardTitle: "Current",
   formfields: [
-    { label: "Voltage", placeholder: "Enter Voltage (V)" },
-    { label: "Resistance", placeholder: "Enter Resistance" },
+    {
+      label: "Voltage",
+      placeholder: "Enter Voltage (V)",
+      inputType: "number-pad",
+    },
+    {
+      label: "Resistance",
+      placeholder: "Enter Resistance",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: async (data: object) =>
     await getapiResponse("/electricity/current", data),
@@ -38,8 +63,12 @@ const current: GenericCard = {
 const voltage: GenericCard = {
   cardTitle: "Voltage",
   formfields: [
-    { label: "Current", placeholder: "Enter Current" },
-    { label: "Resistance", placeholder: "Enter Resistance" },
+    { label: "Current", placeholder: "Enter Current", inputType: "number-pad" },
+    {
+      label: "Resistance",
+      placeholder: "Enter Resistance",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: async (data: object) =>
     await getapiResponse("/electricity/voltage", data),
@@ -48,8 +77,8 @@ const voltage: GenericCard = {
 const power: GenericCard = {
   cardTitle: "Power",
   formfields: [
-    { label: "Voltage", placeholder: "Enter Voltage" },
-    { label: "Current", placeholder: "Enter Current" },
+    { label: "Voltage", placeholder: "Enter Voltage", inputType: "number-pad" },
+    { label: "Current", placeholder: "Enter Current", inputType: "number-pad" },
   ],
   apiFunction: async (data: object) =>
     await getapiResponse("/electricity/power", data),
