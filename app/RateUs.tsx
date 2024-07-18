@@ -1,6 +1,14 @@
 import React from "react";
-import GenericPlaceholder from "@/components/GenericPlaceholder";
+import GenericPage from "@/components/GenericPage";
+import { rateus } from "@/constants/Constants";
 
 export default function RateUs() {
-  return <GenericPlaceholder />;
+  return (
+    <GenericPage
+      heading={rateus.heading}
+      desc={rateus.desc}
+      cardHeading={rateus.cardHeading}
+      cards={rateus.cards}
+    />
+  );
 }

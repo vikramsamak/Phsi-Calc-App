@@ -18,7 +18,11 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
   } | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleChange = (value: any, fieldName: string, type?: "array") => {
+  const handleChange = (
+    value: any,
+    fieldName: string,
+    type: string | undefined
+  ) => {
     switch (type) {
       case "array":
         const arrayValue = value.split(",").map((item: string) => item.trim());
@@ -68,7 +72,7 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
                   field.type
                 )
               }
-              keyboardType={"number-pad"}
+              keyboardType={field.inputType ? field.inputType : "default"}
             />
           </FormControl>
         ))}
