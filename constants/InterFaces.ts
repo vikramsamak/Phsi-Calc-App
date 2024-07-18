@@ -2,7 +2,7 @@ export interface FormField {
   label: string;
   placeholder: string;
   type?: "array";
-  inputType: "default" | "number-pad";
+  inputType: "default" | "number-pad" | "email-address";
 }
 
 export interface GenericCard {

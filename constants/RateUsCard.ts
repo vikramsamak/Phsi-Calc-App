@@ -7,10 +7,12 @@ export const RateUsCard: GenericCard[] = [
       {
         label: "Your Name",
         placeholder: "Enter your name",
+        inputType: "default",
       },
       {
         label: "Email",
         placeholder: "Enter your email",
+        inputType: "email-address",
       },
       {
         label: "Your Rating",
@@ -20,6 +22,7 @@ export const RateUsCard: GenericCard[] = [
       {
         label: "Comments",
         placeholder: "Share your feedback",
+        inputType: "default",
       },
     ],
     apiFunction: (data) => {
