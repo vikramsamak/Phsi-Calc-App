@@ -2,11 +2,15 @@ export interface FormField {
   label: string;
   placeholder: string;
   type?: "array";
+  isTextarea?: boolean;
+  isSelect?: boolean;
+  inputType: "default" | "number-pad" | "email-address";
 }
 
 export interface GenericCard {
   cardTitle: string;
   formfields: FormField[];
+  submitBtnText?: string;
   apiFunction: (data: object) => Promise<any>;
 }
 

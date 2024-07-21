@@ -1,13 +1,14 @@
 import { getapiResponse } from "@/helpers/GetapiResult";
-import { GenericCard } from "./InterFaces";
+import { GenericCard } from "../types/InterFaces";
 
 const force: GenericCard = {
   cardTitle: "Force",
   formfields: [
-    { label: "Mass", placeholder: "Enter Mass" },
+    { label: "Mass", placeholder: "Enter Mass", inputType: "number-pad" },
     {
       label: "Acceleration",
       placeholder: "Enter Acceleration",
+      inputType: "number-pad",
     },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/force", data),
@@ -16,8 +17,12 @@ const force: GenericCard = {
 const momentum: GenericCard = {
   cardTitle: "Momentum",
   formfields: [
-    { label: "Mass", placeholder: "Enter Mass" },
-    { label: "Velocity", placeholder: "Enter Velocity" },
+    { label: "Mass", placeholder: "Enter Mass", inputType: "number-pad" },
+    {
+      label: "Velocity",
+      placeholder: "Enter Velocity",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/momentum", data),
 };
@@ -28,12 +33,18 @@ const recoil_velocity: GenericCard = {
     {
       label: "Mass of Bullet",
       placeholder: "Enter Mass of bullet",
+      inputType: "number-pad",
     },
     {
       label: "Initial Velocity",
       placeholder: "Enter Initial Velocity",
+      inputType: "number-pad",
     },
-    { label: "Mass of Gun", placeholder: "Enter Mass of Gun" },
+    {
+      label: "Mass of Gun",
+      placeholder: "Enter Mass of Gun",
+      inputType: "number-pad",
+    },
   ],
   apiFunction: (data: object) => getapiResponse("/nlm/recoil_velocity", data),
 };

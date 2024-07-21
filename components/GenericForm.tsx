@@ -1,14 +1,29 @@
 import React, { useState } from "react";
-import { VStack, FormControl, Input, Button, Center, Modal } from "native-base";
+import {
+  VStack,
+  FormControl,
+  Input,
+  Button,
+  Center,
+  TextArea,
+  Slider,
+  HStack,
+  Text,
+} from "native-base";
 import GenericModal from "./GenericModal";
-import { FormField } from "@/constants/InterFaces";
+import { FormField } from "@/types/InterFaces";
 
 interface GenericFormProps {
   fields: FormField[];
+  submitBtnText: string | undefined;
   getResult: (formValues: Record<string, any>) => Promise<any>;
 }
 
-const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
+const GenericForm: React.FC<GenericFormProps> = ({
+  fields,
+  submitBtnText,
+  getResult,
+}) => {
   const [formValues, setFormValues] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [result, setResult] = useState<{
@@ -18,7 +33,11 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
   } | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleChange = (value: any, fieldName: string, type?: "array") => {
+  const handleChange = (
+    value: any,
+    fieldName: string,
+    type: string | undefined
+  ) => {
     switch (type) {
       case "array":
         const arrayValue = value.split(",").map((item: string) => item.trim());
@@ -55,25 +74,80 @@ const GenericForm: React.FC<GenericFormProps> = ({ fields, getResult }) => {
       <VStack space={4} width="100%">
         {fields.map((field, index) => (
           <FormControl key={index}>
-            <FormControl.Label>{field.label}</FormControl.Label>
-            <Input
-              placeholder={field.placeholder}
-              value={
-                formValues[field.label.replace(/\s+/g, "_").toLowerCase()] || ""
-              }
-              onChangeText={(value) =>
-                handleChange(
-                  value,
-                  field.label.replace(/\s+/g, "_").toLowerCase(),
-                  field.type
-                )
-              }
-              keyboardType={"number-pad"}
-            />
+            <HStack
+              width={"100%"}
+              display={"flex"}
+              justifyContent={"space-between"}
+            >
+              <FormControl.Label>{field.label}</FormControl.Label>
+              {field.isSelect && (
+                <Text>
+                  {formValues[field.label.replace(/\s+/g, "_").toLowerCase()]}
+                </Text>
+              )}
+            </HStack>
+            {field.isSelect ? (
+              <Slider
+                w="100%"
+                minValue={0}
+                maxValue={5}
+                accessibilityLabel="ratings"
+                step={1}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  0
+                }
+                onChange={(value) => {
+                  handleChange(
+                    Number(value),
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  );
+                }}
+              >
+                <Slider.Track>
+                  <Slider.FilledTrack />
+                </Slider.Track>
+                <Slider.Thumb />
+              </Slider>
+            ) : field.isTextarea ? (
+              <TextArea
+                minH={"2"}
+                placeholder={field.placeholder}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  ""
+                }
+                onChangeText={(value) =>
+                  handleChange(
+                    value,
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  )
+                }
+                autoCompleteType={undefined}
+              />
+            ) : (
+              <Input
+                placeholder={field.placeholder}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  ""
+                }
+                onChangeText={(value) =>
+                  handleChange(
+                    value,
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  )
+                }
+                keyboardType={field.inputType}
+              />
+            )}
           </FormControl>
         ))}
         <Button onPress={handleSubmit} isLoading={loading}>
-          Calculate
+          {submitBtnText ? submitBtnText : "Calculate"}
         </Button>
       </VStack>
       <GenericModal
