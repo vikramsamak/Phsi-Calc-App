@@ -6,9 +6,12 @@ import {
   Button,
   Center,
   TextArea,
+  Slider,
+  HStack,
+  Text,
 } from "native-base";
 import GenericModal from "./GenericModal";
-import { FormField } from "@/constants/InterFaces";
+import { FormField } from "@/types/InterFaces";
 
 interface GenericFormProps {
   fields: FormField[];
@@ -71,8 +74,43 @@ const GenericForm: React.FC<GenericFormProps> = ({
       <VStack space={4} width="100%">
         {fields.map((field, index) => (
           <FormControl key={index}>
-            <FormControl.Label>{field.label}</FormControl.Label>
-            {field.isTextarea ? (
+            <HStack
+              width={"100%"}
+              display={"flex"}
+              justifyContent={"space-between"}
+            >
+              <FormControl.Label>{field.label}</FormControl.Label>
+              {field.isSelect && (
+                <Text>
+                  {formValues[field.label.replace(/\s+/g, "_").toLowerCase()]}
+                </Text>
+              )}
+            </HStack>
+            {field.isSelect ? (
+              <Slider
+                w="100%"
+                minValue={0}
+                maxValue={5}
+                accessibilityLabel="ratings"
+                step={1}
+                value={
+                  formValues[field.label.replace(/\s+/g, "_").toLowerCase()] ||
+                  0
+                }
+                onChange={(value) => {
+                  handleChange(
+                    Number(value),
+                    field.label.replace(/\s+/g, "_").toLowerCase(),
+                    field.type
+                  );
+                }}
+              >
+                <Slider.Track>
+                  <Slider.FilledTrack />
+                </Slider.Track>
+                <Slider.Thumb />
+              </Slider>
+            ) : field.isTextarea ? (
               <TextArea
                 minH={"2"}
                 placeholder={field.placeholder}

@@ -6,7 +6,7 @@ export const RateUsCard: GenericCard[] = [
     cardTitle: "Your Feedback Matters",
     formfields: [
       {
-        label: "Your Name",
+        label: "Name",
         placeholder: "Enter your name",
         inputType: "default",
       },
@@ -16,9 +16,10 @@ export const RateUsCard: GenericCard[] = [
         inputType: "email-address",
       },
       {
-        label: "Your Rating",
+        label: "Rating",
         placeholder: "Enter your rating (1-5)",
-        inputType: "number-pad",
+        isSelect: true,
+        inputType: "default",
       },
       {
         label: "Comments",
