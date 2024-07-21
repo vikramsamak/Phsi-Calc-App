@@ -1,4 +1,4 @@
-import { sendRatingEmail } from "@/helpers/sendRatingEmail";
+import { sendRatingEmail } from "@/helpers/SendRatingEmail";
 import { GenericCard } from "../types/InterFaces";
 
 export const RateUsCard: GenericCard[] = [
