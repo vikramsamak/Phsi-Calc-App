@@ -1,10 +1,12 @@
 import { electricityCards } from "./ElectricityCards";
-import { GenericPageProps } from "./InterFaces";
+import { GenericPageProps } from "../types/InterFaces";
 import { nlmCards } from "./NlmCards";
 import { RateUsCard } from "./RateUsCard";
 import { subautomicCards } from "./SubautomicCards";
 
 export const apiBaseUrl = "https://phsipy-api.vercel.app";
+
+export const formspreeformId = "mnnajnwj";
 
 export const features = [
   {

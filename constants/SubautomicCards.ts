@@ -1,5 +1,5 @@
 import { getapiResponse } from "@/helpers/GetapiResult";
-import { GenericCard } from "./InterFaces";
+import { GenericCard } from "../types/InterFaces";
 
 const mass_energy_equivalence: GenericCard = {
   cardTitle: "Mass Energy Equivalence",

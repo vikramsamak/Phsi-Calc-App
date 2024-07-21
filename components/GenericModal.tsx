@@ -39,7 +39,7 @@ const GenericModal: React.FC<GenericModalProps> = ({
                   ))}
                 </>
               ) : (
-                <Text>{JSON.stringify(result.Result)}</Text>
+                <Text>{result.Result}</Text>
               )}
             </VStack>
           ) : (

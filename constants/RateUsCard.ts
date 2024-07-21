@@ -1,4 +1,5 @@
-import { GenericCard } from "./InterFaces";
+import { sendRatingEmail } from "@/helpers/sendRatingEmail";
+import { GenericCard } from "../types/InterFaces";
 
 export const RateUsCard: GenericCard[] = [
   {
@@ -26,9 +27,7 @@ export const RateUsCard: GenericCard[] = [
         isTextarea: true,
       },
     ],
-    apiFunction: async (data: { [key: string]: any }) => {
-      return Promise.resolve({ Result: data });
-    },
+    apiFunction: async (data: object) => await sendRatingEmail(data),
     submitBtnText: "Submit",
   },
 ];
