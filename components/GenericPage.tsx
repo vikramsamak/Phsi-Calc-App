@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, ScrollView, Text, VStack } from "native-base";
 import GenericForm from "./GenericForm";
 import GenericFormCard from "./GenericFormCard";
-import { GenericPageProps } from "@/constants/InterFaces";
+import { GenericPageProps } from "@/types/InterFaces";
 
 export default function GenericPage({
   heading,
