@@ -20,7 +20,9 @@ const GenericModal: React.FC<GenericModalProps> = ({
     <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
       <Modal.Content maxWidth="400px">
         <Modal.CloseButton />
-        <Modal.Header>Calculation Result</Modal.Header>
+        <Modal.Header>
+          {result?.Given ? "Calculation Result" : "Thanks..."}
+        </Modal.Header>
         <Modal.Body>
           {result ? (
             <VStack space={4}>
@@ -37,6 +39,10 @@ const GenericModal: React.FC<GenericModalProps> = ({
                       </Text>
                     </HStack>
                   ))}
+                  <HStack justifyContent={"space-between"}>
+                    <Text bold>Result:</Text>
+                    <Text>{result.Result}</Text>
+                  </HStack>
                 </>
               ) : (
                 <Text>{result.Result}</Text>
