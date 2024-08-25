@@ -2,6 +2,8 @@
 
 Phsi-Calc-App is a mobile application designed to simplify physics calculations for students and professionals. Built using React Native and Expo, this app provides an intuitive interface for solving various physics problems with ease.
 
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Stars](https://img.shields.io/github/stars/vikramsamak/Phsi-Calc-App?style=social) ![Issues](https://img.shields.io/github/issues/vikramsamak/Phsi-Calc-App) ![Forks](https://img.shields.io/github/forks/vikramsamak/Phsi-Calc-App?style=social)
+
 ## Features
 
 - **User-Friendly Interface:** Simple and clean UI for easy navigation and input.
