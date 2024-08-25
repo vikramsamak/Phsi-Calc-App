@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+# Phsi-Calc-App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Phsi-Calc-App is a mobile application designed to simplify physics calculations for students and professionals. Built using React Native and Expo, this app provides an intuitive interface for solving various physics problems with ease.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **User-Friendly Interface:** Simple and clean UI for easy navigation and input.
+- **Comprehensive Calculations:** Supports a wide range of physics calculations.
+- **Cross-Platform Support:** Runs smoothly on both Android and iOS devices.
+- **API Integration:** Utilizes the [PhsiPy-Api](https://github.com/vikramsamak/PhsiPy-Api) for performing accurate physics calculations, ensuring high precision and reliability.
+
+## Technologies Used
+
+- **React Native**: For building the mobile application.
+- **Expo**: Managed workflow for rapid development.
+- **Jest**: For running tests and ensuring code quality.
+- **NativeBase**: Component library for React Native.
+- **React Navigation**: To handle routing and navigation within the app.
+
+## Installation
+
+To get started with Phsi-Calc-App on your local machine:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/vikramsamak/Phsi-Calc-App.git
+   cd Phsi-Calc-App
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Run the app:**
 
    ```bash
-    npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+   Use the Expo Go app on your mobile device to scan the QR code displayed in your terminal.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Available Scripts
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `npm start`: Starts the development server.
+- `npm run android`: Starts the app on an Android emulator.
+- `npm run ios`: Starts the app on an iOS simulator.
+- `npm run web`: Runs the app in the web browser.
+- `npm test`: Runs all tests using Jest.
 
-## Get a fresh project
+## Contributing
 
-When you're ready, run:
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
 
-```bash
-npm run reset-project
-```
+## License
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This project is licensed under the MIT License. You are free to use, modify, and distribute this software as per the terms of the MIT License. For more details, please see the [LICENSE](LICENSE) file.
 
-## Learn more
+## Acknowledgements
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Special thanks to the contributors and users who have supported this project.
