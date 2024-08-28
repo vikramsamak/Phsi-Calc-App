@@ -12,19 +12,25 @@ import {
 } from "native-base";
 import GenericModal from "./GenericModal";
 import { FormField } from "@/types/InterFaces";
+import z, { ZodError } from "zod";
+import { useToast } from "native-base";
 
 interface GenericFormProps {
   fields: FormField[];
   submitBtnText: string | undefined;
   getResult: (formValues: Record<string, any>) => Promise<any>;
+  validation_schema: z.ZodTypeAny;
 }
 
 const GenericForm: React.FC<GenericFormProps> = ({
   fields,
   submitBtnText,
   getResult,
+  validation_schema,
 }) => {
-  const [formValues, setFormValues] = useState<Record<string, any>>({});
+  const [formValues, setFormValues] = useState<
+    z.infer<typeof validation_schema>
+  >({});
   const [loading, setLoading] = useState<boolean>(false);
   const [result, setResult] = useState<{
     Definition: string;
@@ -32,22 +38,25 @@ const GenericForm: React.FC<GenericFormProps> = ({
     Result: number;
   } | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const toast = useToast();
 
   const handleChange = (
-    value: any,
+    value: string | number,
     fieldName: string,
     type: string | undefined
   ) => {
     switch (type) {
       case "array":
-        const arrayValue = value.split(",").map((item: string) => item.trim());
-        setFormValues((prevValues) => ({
+        const arrayValue =
+          typeof value === "string" &&
+          value.split(",").map((item: string) => item.trim());
+        setFormValues((prevValues: z.infer<typeof validation_schema>) => ({
           ...prevValues,
           [fieldName]: arrayValue,
         }));
         break;
       default:
-        setFormValues((prevValues) => ({
+        setFormValues((prevValues: z.infer<typeof validation_schema>) => ({
           ...prevValues,
           [fieldName]: value,
         }));
@@ -58,11 +67,21 @@ const GenericForm: React.FC<GenericFormProps> = ({
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const res = await getResult(formValues);
-      setResult(res);
-      setShowModal(true);
-    } catch (error) {
-      console.error(error);
+      const isBodyValid = validation_schema.parse(formValues);
+      if (isBodyValid) {
+        const res = await getResult(formValues);
+        setResult(res);
+        setShowModal(true);
+      }
+    } catch (e) {
+      if (e instanceof ZodError) {
+        const errorMessages = e.errors
+          .map((error: any) => error.message)
+          .join(", ");
+        toast.show({ description: errorMessages });
+      } else {
+        console.error(e);
+      }
     } finally {
       setLoading(false);
       setFormValues({});
@@ -136,7 +155,7 @@ const GenericForm: React.FC<GenericFormProps> = ({
                 }
                 onChangeText={(value) =>
                   handleChange(
-                    value,
+                    Number(value),
                     field.label.replace(/\s+/g, "_").toLowerCase(),
                     field.type
                   )
