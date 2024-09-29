@@ -28,9 +28,7 @@ const GenericModal: React.FC<GenericModalProps> = ({
             <VStack space={4}>
               {result.Given ? (
                 <>
-                  <Text fontSize="lg" bold>
-                    Given:
-                  </Text>
+                  <Text bold>Given:</Text>
                   {Object.entries(result.Given).map(([key, value]) => (
                     <HStack key={key} justifyContent="space-between">
                       <Text>{key}:</Text>
