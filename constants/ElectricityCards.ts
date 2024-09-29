@@ -14,16 +14,19 @@ const force_electrostatics: GenericCard = {
     {
       label: "Q1",
       placeholder: "Enter Magnitude (q1)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Q2",
       placeholder: "Enter Magnitude (q2)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
@@ -38,11 +41,13 @@ const resistance: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage (V)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Current",
       placeholder: "Enter Current (C)",
+      type: "number",
       inputType: "number-pad",
     },
   ],
@@ -57,11 +62,13 @@ const current: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage (V)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
@@ -76,11 +83,13 @@ const voltage: GenericCard = {
     {
       label: "Current",
       placeholder: "Enter Current",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
@@ -95,11 +104,13 @@ const power: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Current",
       placeholder: "Enter Current",
+      type: "number",
       inputType: "number-pad",
     },
   ],

@@ -2,10 +2,10 @@ import z from "zod";
 export interface FormField {
   label: string;
   placeholder: string;
-  type?: "array";
+  type: "array" | "string" | "number";
+  inputType: "default" | "number-pad" | "email-address";
   isTextarea?: boolean;
   isSelect?: boolean;
-  inputType: "default" | "number-pad" | "email-address";
 }
 
 export interface GenericCard {
@@ -28,4 +28,10 @@ export interface GenericFormProps {
   submitBtnText: string | undefined;
   getResult: (formValues: Record<string, any>) => Promise<any>;
   validation_schema: z.ZodTypeAny;
+}
+
+export interface GenericInputFieldProps {
+  field: FormField;
+  formValues: Record<string, any>;
+  setFormValues: React.Dispatch<React.SetStateAction<Record<string, any>>>;
 }
