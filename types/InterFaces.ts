@@ -13,7 +13,7 @@ export interface GenericCard {
   formfields: FormField[];
   submitBtnText?: string;
   validation_schema: z.ZodTypeAny;
-  apiFunction: (data: object) => Promise<any>;
+  apiFunction: (data: z.infer<z.ZodTypeAny>) => Promise<any>;
 }
 
 export interface GenericPageProps {
@@ -21,4 +21,11 @@ export interface GenericPageProps {
   desc: string;
   cardHeading: string;
   cards: GenericCard[];
+}
+
+export interface GenericFormProps {
+  fields: FormField[];
+  submitBtnText: string | undefined;
+  getResult: (formValues: Record<string, any>) => Promise<any>;
+  validation_schema: z.ZodTypeAny;
 }
