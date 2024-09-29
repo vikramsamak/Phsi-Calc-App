@@ -11,16 +11,9 @@ import {
   Text,
 } from "native-base";
 import GenericModal from "./GenericModal";
-import { FormField } from "@/types/InterFaces";
+import { GenericFormProps } from "@/types/InterFaces";
 import z, { ZodError } from "zod";
 import { useToast } from "native-base";
-
-interface GenericFormProps {
-  fields: FormField[];
-  submitBtnText: string | undefined;
-  getResult: (formValues: Record<string, any>) => Promise<any>;
-  validation_schema: z.ZodTypeAny;
-}
 
 const GenericForm: React.FC<GenericFormProps> = ({
   fields,
@@ -145,6 +138,8 @@ const GenericForm: React.FC<GenericFormProps> = ({
                   )
                 }
                 autoCompleteType={undefined}
+                tvParallaxProperties={undefined}
+                onTextInput={undefined}
               />
             ) : (
               <Input
