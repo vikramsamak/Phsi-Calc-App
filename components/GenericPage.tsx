@@ -35,6 +35,7 @@ export default function GenericPage({
                   fields={card.formfields}
                   getResult={card.apiFunction}
                   submitBtnText={card.submitBtnText}
+                  validation_schema={card.validation_schema}
                 />
               }
             />

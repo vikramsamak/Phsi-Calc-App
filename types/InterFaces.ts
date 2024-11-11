@@ -1,17 +1,19 @@
+import z from "zod";
 export interface FormField {
   label: string;
   placeholder: string;
-  type?: "array";
+  type: "array" | "string" | "number";
+  inputType: "default" | "number-pad" | "email-address";
   isTextarea?: boolean;
   isSelect?: boolean;
-  inputType: "default" | "number-pad" | "email-address";
 }
 
 export interface GenericCard {
   cardTitle: string;
   formfields: FormField[];
   submitBtnText?: string;
-  apiFunction: (data: object) => Promise<any>;
+  validation_schema: z.ZodTypeAny;
+  apiFunction: (data: z.infer<z.ZodTypeAny>) => Promise<any>;
 }
 
 export interface GenericPageProps {
@@ -19,4 +21,17 @@ export interface GenericPageProps {
   desc: string;
   cardHeading: string;
   cards: GenericCard[];
+}
+
+export interface GenericFormProps {
+  fields: FormField[];
+  submitBtnText?: string;
+  getResult: (formValues: Record<string, any>) => Promise<any>;
+  validation_schema: z.ZodTypeAny;
+}
+
+export interface GenericInputFieldProps {
+  field: FormField;
+  formValues: Record<string, any>;
+  setFormValues: React.Dispatch<React.SetStateAction<Record<string, any>>>;
 }

@@ -23,12 +23,11 @@
       "package": "com.vikramsamak.PhsiCalcApp"
     },
     "web": {
+      "favicon": "./assets/images/icon.png",
       "output": "single",
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
     },

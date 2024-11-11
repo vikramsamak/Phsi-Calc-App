@@ -1,5 +1,12 @@
 import { getapiResponse } from "@/helpers/GetapiResult";
 import { GenericCard } from "../types/InterFaces";
+import {
+  current_schema,
+  force_electrostatics_schema,
+  power_schema,
+  resistance_schema,
+  voltage_schema,
+} from "@/schemas/ElectricitySchemas";
 
 const force_electrostatics: GenericCard = {
   cardTitle: "Force Electrostatics",
@@ -7,20 +14,24 @@ const force_electrostatics: GenericCard = {
     {
       label: "Q1",
       placeholder: "Enter Magnitude (q1)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Q2",
       placeholder: "Enter Magnitude (q2)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
-  apiFunction: async (data: object) =>
+  validation_schema: force_electrostatics_schema,
+  apiFunction: async (data: typeof force_electrostatics_schema) =>
     await getapiResponse("/electricity/force_electrostatics", data),
 };
 
@@ -30,15 +41,18 @@ const resistance: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage (V)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Current",
       placeholder: "Enter Current (C)",
+      type: "number",
       inputType: "number-pad",
     },
   ],
-  apiFunction: async (data: object) =>
+  validation_schema: resistance_schema,
+  apiFunction: async (data: typeof resistance_schema) =>
     await getapiResponse("/electricity/resistance", data),
 };
 
@@ -48,66 +62,67 @@ const current: GenericCard = {
     {
       label: "Voltage",
       placeholder: "Enter Voltage (V)",
+      type: "number",
       inputType: "number-pad",
     },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
-  apiFunction: async (data: object) =>
+  validation_schema: current_schema,
+  apiFunction: async (data: typeof current_schema) =>
     await getapiResponse("/electricity/current", data),
 };
 
 const voltage: GenericCard = {
   cardTitle: "Voltage",
   formfields: [
-    { label: "Current", placeholder: "Enter Current", inputType: "number-pad" },
+    {
+      label: "Current",
+      placeholder: "Enter Current",
+      type: "number",
+      inputType: "number-pad",
+    },
     {
       label: "Resistance",
       placeholder: "Enter Resistance",
+      type: "number",
       inputType: "number-pad",
     },
   ],
-  apiFunction: async (data: object) =>
+  validation_schema: voltage_schema,
+  apiFunction: async (data: typeof voltage_schema) =>
     await getapiResponse("/electricity/voltage", data),
 };
 
 const power: GenericCard = {
   cardTitle: "Power",
   formfields: [
-    { label: "Voltage", placeholder: "Enter Voltage", inputType: "number-pad" },
-    { label: "Current", placeholder: "Enter Current", inputType: "number-pad" },
+    {
+      label: "Voltage",
+      placeholder: "Enter Voltage",
+      type: "number",
+      inputType: "number-pad",
+    },
+    {
+      label: "Current",
+      placeholder: "Enter Current",
+      type: "number",
+      inputType: "number-pad",
+    },
   ],
-  apiFunction: async (data: object) =>
+  validation_schema: power_schema,
+  apiFunction: async (data: typeof power_schema) =>
     await getapiResponse("/electricity/power", data),
 };
 
 export const electricityCards: GenericCard[] = [
-  {
-    cardTitle: force_electrostatics.cardTitle,
-    formfields: force_electrostatics.formfields,
-    apiFunction: force_electrostatics.apiFunction,
-  },
-  {
-    cardTitle: resistance.cardTitle,
-    formfields: resistance.formfields,
-    apiFunction: resistance.apiFunction,
-  },
-  {
-    cardTitle: current.cardTitle,
-    formfields: current.formfields,
-    apiFunction: current.apiFunction,
-  },
-  {
-    cardTitle: voltage.cardTitle,
-    formfields: voltage.formfields,
-    apiFunction: voltage.apiFunction,
-  },
-  {
-    cardTitle: power.cardTitle,
-    formfields: power.formfields,
-    apiFunction: power.apiFunction,
-  },
+  force_electrostatics,
+  resistance,
+  current,
+  voltage,
+  power,
 ];
