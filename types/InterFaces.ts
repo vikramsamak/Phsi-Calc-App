@@ -25,7 +25,7 @@ export interface GenericPageProps {
 
 export interface GenericFormProps {
   fields: FormField[];
-  submitBtnText: string | undefined;
+  submitBtnText?: string;
   getResult: (formValues: Record<string, any>) => Promise<any>;
   validation_schema: z.ZodTypeAny;
 }
