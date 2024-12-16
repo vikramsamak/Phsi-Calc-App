@@ -4,10 +4,9 @@
     "jsx": "react",
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+      "@/*": ["./*"]
+    },
+    "types": ["hammerjs"]
   },
   "include": [
     "**/*.ts",
