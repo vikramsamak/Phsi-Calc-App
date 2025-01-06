@@ -3,6 +3,7 @@ import { GenericPageProps } from "../types/InterFaces";
 import { nlmCards } from "./NlmCards";
 import { RateUsCard } from "./RateUsCard";
 import { subautomicCards } from "./SubautomicCards";
+import { mechanicsCards } from "./MechanicsCards";
 
 export const apiBaseUrl = "https://phsipy-api.vercel.app";
 
@@ -55,4 +56,11 @@ export const rateus: GenericPageProps = {
   desc: "Please take a moment to rate your experience and share your feedback with us. Your input helps us improve our services.",
   cardHeading: "Rate Us",
   cards: RateUsCard,
+};
+
+export const mechanics: GenericPageProps = {
+  heading: "Mechanics",
+  desc: "Mechanics is the branch of physics that deals with the study of motion and the forces that cause it. It encompasses classical mechanics, which describes the motion of macroscopic objects, and quantum mechanics, which describes the motion of subatomic particles. Mechanics is essential for understanding the physical world and is used in various fields, including engineering, astronomy, and biology.",
+  cardHeading: "Mechanics Calculators",
+  cards: mechanicsCards,
 };

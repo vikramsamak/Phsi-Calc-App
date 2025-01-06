@@ -1,6 +1,14 @@
 import React from "react";
-import GenericPlaceholder from "@/components/GenericPlaceholder";
+import GenericPage from "@/components/GenericPage";
+import { mechanics } from "@/constants/Constants";
 
 export default function Mechanics() {
-  return <GenericPlaceholder />;
+  return (
+    <GenericPage
+      heading={mechanics.heading}
+      cardHeading={mechanics.cardHeading}
+      cards={mechanics.cards}
+      desc={mechanics.desc}
+    />
+  );
 }
